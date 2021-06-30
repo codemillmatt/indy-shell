@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="IndyShell.SmokeDetailPage"
+    Title="Smoke Details" Shell.PresentationMode="ModalAnimated">
+        
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="Orange"/>                    
+                    <GradientStop Color="DarkOrange"/>
+                    <GradientStop Color="OrangeRed"/>
+                    <GradientStop Color="IndianRed"/>
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <Label x:Name="cityNameLabel"
+                   FontSize="36"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+            <Button Text="Done" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

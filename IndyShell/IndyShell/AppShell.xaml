@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:IndyShell"
+       x:Class="IndyShell.AppShell"       
+       FlyoutBackdrop="Gray"
+       TabBarBackgroundColor="Azure"
+       TabBarTitleColor="DarkOrange"
+       TabBarUnselectedColor="Green">
+              
+        <Shell.FlyoutBackground>
+            <LinearGradientBrush>
+                <GradientStop Color="Aquamarine"/>
+                <GradientStop Color="RosyBrown" />
+            </LinearGradientBrush>
+        </Shell.FlyoutBackground>
+
+        <Shell.FlyoutHeaderTemplate>
+            <DataTemplate>
+                <Grid HeightRequest="150">
+                    <Grid.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="White" />
+                            <GradientStop Color="PapayaWhip"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Image Source="alert_urgent.png" />
+                    <Label Text="WEATHER!" TextColor="DodgerBlue" FontAttributes="Bold" FontSize="Title"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </Grid>
+            </DataTemplate>
+        </Shell.FlyoutHeaderTemplate>
+
+        <Shell.FlyoutFooterTemplate>
+            <DataTemplate>
+                <Label Text="Matt Soucoup" HorizontalTextAlignment="Center"/>
+            </DataTemplate>
+        </Shell.FlyoutFooterTemplate>
+
+        <FlyoutItem Title="Condition" Icon="weather_sunny_high.png">                        
+            <Tab Title="Current" Icon="weather_partly_cloudy_day.png">
+                <local:CurrentConditionsPage />
+                <local:HourlyPage />
+            </Tab>
+            <Tab Title="Extended" Icon="calendar_date.png">
+                <ShellContent ContentTemplate="{DataTemplate local:ExtendedForecastPage}"/>                
+            </Tab>
+            <Tab Title="Detailed" Icon="text_description.png">
+                <local:DetailedDiscussionPage />
+            </Tab>                        
+        </FlyoutItem>
+        <FlyoutItem Title="Smoke" Shell.FlyoutBackdrop="Blue" Icon="weather_haze.png">
+            <ShellContent ContentTemplate="{DataTemplate local:SmokeAlertPage}" />
+        </FlyoutItem>
+        <FlyoutItem Title="About" Icon="book_information.png">
+            <local:AboutPage />
+        </FlyoutItem>            
+</Shell>
